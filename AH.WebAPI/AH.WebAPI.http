@@ -1,0 +1,6 @@
+@AH.WebAPI_HostAddress = http://localhost:5215
+
+GET {{AH.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
