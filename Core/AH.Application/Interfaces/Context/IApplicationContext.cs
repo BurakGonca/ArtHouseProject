@@ -12,6 +12,6 @@ namespace AH.Application.Interfaces.Context
 	{
 		DbSet<Exhibition> Exhibitions { get; set; }
 		DbSet<Category> Categories { get; set; }
-		DbSet<Date> Dates { get; set; }
+		
 	}
 }

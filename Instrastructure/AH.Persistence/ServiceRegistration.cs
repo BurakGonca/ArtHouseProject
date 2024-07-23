@@ -24,7 +24,6 @@ namespace AH.Persistence
 
             serviceCollection.AddTransient<IExhibitionRepostory, ExhibitionRepository>();
             serviceCollection.AddTransient<ICategoryRepository, CategoryRepository>();
-            serviceCollection.AddTransient<IDateRepository, DateRepository>();
             serviceCollection.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 

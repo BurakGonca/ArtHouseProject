@@ -14,7 +14,7 @@ namespace AH.Application.Interfaces.UnitOfWork
 		Task<IDbContextTransaction> BeginTransactionAsync();
 		public IExhibitionRepostory ExhibitionRepository { get; }
 		public ICategoryRepository CategoryRepository { get; }
-		public IDateRepository DateRepository { get; }
+		
 
 
 

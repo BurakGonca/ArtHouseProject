@@ -7,7 +7,7 @@ function CategoryComponent({ categories }) {
             <div>
                 {categories.map((category, index) => (
                     <div key={index}>
-                        <h2>{category.categoryName}</h2> {/* Kategori adýný göster */}
+                        <h2>{category.categoryName}</h2> 
 
                     </div>
                 ))}

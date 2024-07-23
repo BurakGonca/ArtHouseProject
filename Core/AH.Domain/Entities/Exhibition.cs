@@ -13,13 +13,16 @@ namespace AH.Domain.Entities
 		public string Description { get; set; }
 		public string? ImageName { get; set; }
 
+		public DateTime StartDate { get; set; }
+		public DateTime EndDate { get; set; }
 
-        //iliskiler
 
-        public int CategoryId { get; set; }
+		//iliskiler
+
+		public int CategoryId { get; set; }
         public Category? Category { get; set; }
 
-        public IEnumerable<Date>? Dates { get; set; }
+        
 
 
     }

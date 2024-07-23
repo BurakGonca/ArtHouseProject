@@ -9,13 +9,17 @@ namespace AH.Application.Dto.Concrete
 		public string Description { get; set; }
 		public string? ImageName { get; set; }
 
+		public DateTime StartDate { get; set; }
+		public DateTime EndDate { get; set; }
+
+
 
 		//iliskiler
 
 		public int CategoryId { get; set; }
 		public CategoryDto? Category { get; set; }
 
-		public IEnumerable<DateDto>? Dates { get; set; }
+		
 
 	}
 }

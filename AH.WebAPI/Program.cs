@@ -1,4 +1,5 @@
 
+using AH.Application.Mappers;
 using AH.Infrastructure;
 using AH.Persistence;
 using Microsoft.Extensions.Configuration;
@@ -10,37 +11,7 @@ namespace AH.WebAPI
 	{
 		public static void Main(string[] args)
 		{
-			//var builder = WebApplication.CreateBuilder(args);
-
-			//// Add services to the container.
-
-			//builder.Services.AddControllers();
-			//// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-			//builder.Services.AddEndpointsApiExplorer();
-			//builder.Services.AddSwaggerGen();
-
-			//var app = builder.Build();
-
-			//// Configure the HTTP request pipeline.
-			//if (app.Environment.IsDevelopment())
-			//{
-			//	app.UseSwagger();
-			//	app.UseSwaggerUI();
-			//}
-
-			//app.UseAuthorization();
-
-
-			//app.MapControllers();
-
-			//app.Run();
-
-
-
-
-
-
-
+			
 			var builder = WebApplication.CreateBuilder(args);
 
 
@@ -52,9 +23,6 @@ namespace AH.WebAPI
 			builder.Services.AddInfrastructureServices();
 
 			
-
-
-
 			// Add services to the container.
 
 			builder.Services.AddControllers();
@@ -62,6 +30,12 @@ namespace AH.WebAPI
 			builder.Services.AddEndpointsApiExplorer();
 
 			//builder.Services.AddSwaggerGen();
+
+
+
+			//ilave
+			builder.Services.AddAutoMapper(typeof(MappingProfile));
+			
 
 
 			//ilave

@@ -19,14 +19,14 @@ namespace AH.Persistence.UnitOfWorks
 
 		public ICategoryRepository CategoryRepository { get; }
 
-		public IDateRepository DateRepository { get; }
+		
 
-		public UnitOfWork(ApplicationDbContext context,IExhibitionRepostory exhibitionRepostory , ICategoryRepository categoryRepository, IDateRepository dateRepository)
+		public UnitOfWork(ApplicationDbContext context,IExhibitionRepostory exhibitionRepostory , ICategoryRepository categoryRepository)
 		{
 			_context = context;
 			ExhibitionRepository = exhibitionRepostory;
 			CategoryRepository = categoryRepository;
-			DateRepository = dateRepository;
+			
 		}
 
 		

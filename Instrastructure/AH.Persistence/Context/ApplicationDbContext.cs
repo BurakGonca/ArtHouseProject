@@ -16,7 +16,7 @@ namespace AH.Persistence.Context
 
 		public DbSet<Exhibition> Exhibitions { get; set; }
 		public DbSet<Category> Categories { get; set; }
-		public DbSet<Date> Dates { get; set; }
+		
 
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
