@@ -1,0 +1,38 @@
+.main-container {
+  width: 80%;
+  margin: auto;
+}
+
+.mySwiper {
+  width: 100%;
+  height: 610px; 
+}
+
+.mySwiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 48px;
+  height: 48px;
+}
+
+.autoplay-progress svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.autoplay-progress circle {
+  fill: none;
+  stroke: #000;
+  stroke-width: 4;
+  stroke-dasharray: 126;
+  stroke-dashoffset: calc(var(--progress, 1) * 126);
+  transition: stroke-dashoffset 0.1s;
+}

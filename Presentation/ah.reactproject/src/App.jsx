@@ -1,53 +1,38 @@
-import { useState, useEffect } from 'react'
 
-
-import './App.css'
-import CategoryComponent from './components/Category';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Loading from './components/Loading';
+import Header from "./components/Header";
+import Main from "./components/Main";
+import ExhibitionList from "./components/ExhibitionList";
+import Forms from "./components/Forms";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Loading from "./components/Loading";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import { AuthProvider } from "./context/AuthContext";
+import LoginPage from "./components/LoginPage";
+import PrivateRoute from "./services/PrivateRoute";
 
 function App() {
-    const [categories, setCategories] = useState([]);
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-        categoryGetir();
-    }, []);
-
-    const categoryGetir = async () => {
-        const url = "http://localhost:5215/api/Category";
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const categories = await response.json();
-            setCategories(categories);
-        } catch (error) {
-            console.error('There has been a problem with your fetch operation:', error);
-        }
-    };
-
-    
-
-
-    return (
-        <BrowserRouter>
-           
-            <Routes>
-
-            <Route path="/*" element={<Loading/>}/>
-
-
-            </Routes>
-
-            <CategoryComponent categories={categories} />
-
-            
-
-
-        </BrowserRouter>
-    )
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/*" element={<Loading />} />
+          <Route path="arthouse" element={<Header />}>
+            <Route path="main" element={<Main />} />
+            <Route
+              path="/arthouse/forms"
+              element={<PrivateRoute element={<Forms />} />}
+            />
+            <Route path="exhibitionlist" element={<ExhibitionList />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="login" element={<LoginPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+   </AuthProvider>
+  );
 }
 
-export default App
+
+export default App;
