@@ -15,6 +15,12 @@ namespace AH.WebAPI
 			var builder = WebApplication.CreateBuilder(args);
 
 
+			// JSON serileþtirme ayarlarý
+			builder.Services.AddControllers().AddJsonOptions(options =>
+			{
+				options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+			});
+
 			//ilave
 			IConfiguration configuration = builder.Configuration;
 

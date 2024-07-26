@@ -28,7 +28,7 @@ namespace AH.Persistence.Repositories.Abstract
 
         public int Create(TEntity entity)
         {
-            entity.CreatedDate = DateTime.Now;
+            entity.CreatedDate = DateTime.UtcNow;
             entities.Add(entity);
             return _dbContext.SaveChanges();
         }

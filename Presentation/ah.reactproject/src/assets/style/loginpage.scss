@@ -3,12 +3,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("../img/login.jpg") ;
-    background-position:center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    
+    
     height: 100%;
-    background-size: cover;
+  
   
     .login-form {
       background: rgba(255, 255, 255, 0.8);
@@ -40,20 +38,20 @@
         margin: 10px 0;
         border: none;
         border-radius: 5px;
-        background: #322c2b;
+        background: #4CCD99;
         color: #fff;
         cursor: pointer;
         font-size: 16px;
       }
   
       input[type="submit"]:hover {
-        background: #af8260;
+        background: #007F73;
       }
   
       a {
         display: block;
         margin-top: 10px;
-        color: #322c2b;
+        color: black;
         text-decoration: none;
   
         &:hover {
