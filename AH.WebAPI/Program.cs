@@ -15,16 +15,32 @@ namespace AH.WebAPI
 			var builder = WebApplication.CreateBuilder(args);
 
 
-			// JSON serileþtirme ayarlarý
+
+			// JSON serializer ayarlarý
+			//builder.Services.AddControllers().AddJsonOptions(options =>
+			//{
+			//	options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+			//});
+
+
+			// JSON serializer ayarlarý
 			builder.Services.AddControllers().AddJsonOptions(options =>
 			{
 				options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+				options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+				options.JsonSerializerOptions.WriteIndented = true;
+
+				
 			});
 
-			//ilave
+			
+
+
+
+
 			IConfiguration configuration = builder.Configuration;
 
-			//ilave
+			
 			builder.Services.AddPersistenceServices(configuration);
 			builder.Services.AddInfrastructureServices();
 
@@ -39,12 +55,12 @@ namespace AH.WebAPI
 
 
 
-			//ilave
+			
 			builder.Services.AddAutoMapper(typeof(MappingProfile));
 			
 
 
-			//ilave
+			
 			builder.Services.AddCors(options =>
 			{
 				options.AddPolicy("AllowAllOrigins",
@@ -58,7 +74,7 @@ namespace AH.WebAPI
 
 
 
-			//ilave
+			
 			builder.Services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "AH.WebAPI", Version = "v1" });
@@ -67,14 +83,10 @@ namespace AH.WebAPI
 
 			var app = builder.Build();
 
-			// Configure the HTTP request pipeline.
-			//if (app.Environment.IsDevelopment())
-			//{
-			//	app.UseSwagger();
-			//	app.UseSwaggerUI();
-			//}
+			
 
-			//ilave
+
+			
 			if (app.Environment.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage(); 
@@ -83,12 +95,12 @@ namespace AH.WebAPI
 			}
 
 
-			//ilave
+			
 			app.UseCors("AllowAllOrigins");
 
 
 
-			//ilave
+		
 			app.UseHttpsRedirection(); // Redirect HTTP requests to HTTPS
 			app.UseRouting(); // Enable routing
 

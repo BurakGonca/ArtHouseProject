@@ -42,6 +42,7 @@ namespace AH.Persistence.Repositories.Abstract
         public virtual IEnumerable<TEntity> GetAll()
         {
             return _dbContext.Set<TEntity>().AsNoTracking();
+            //return entities;
         }
 
         public virtual TEntity GetById(int id)

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AH.Domain.Entities
@@ -20,7 +21,7 @@ namespace AH.Domain.Entities
 		//iliskiler
 
 		public int CategoryId { get; set; }
-        public Category? Category { get; set; }
+		public Category? Category { get; set; }
 
         
 

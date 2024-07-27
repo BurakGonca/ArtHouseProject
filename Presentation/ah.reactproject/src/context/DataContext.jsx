@@ -47,7 +47,12 @@ export const DataProvider = ({ children }) => {
     exhibitionGetir();
   }, []);
 
- 
+
+  
+
+  
+ //search
+ const [search, setSearch] = useState("");
 
   return (
     <DataContext.Provider
@@ -56,6 +61,12 @@ export const DataProvider = ({ children }) => {
         setData,
         exhibitionEkle,
         exhibitions,
+
+
+
+        
+        search,
+        setSearch, //searchden gelen
       }}
     >
       {children}

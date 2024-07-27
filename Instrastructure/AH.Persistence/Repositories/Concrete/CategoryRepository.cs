@@ -17,11 +17,7 @@ namespace AH.Persistence.Repositories.Concrete
 		{
 		}
 
-		public override IEnumerable<Category> GetAll()
-		{
-			return _dbContext.Categories.Include(c => c.Exhibitions);
-		}
-
+	
 
 	}
 }

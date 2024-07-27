@@ -17,15 +17,7 @@ namespace AH.Persistence.Repositories.Concrete
 		{
 		}
 
-		public override IEnumerable<Exhibition> GetAll()
-		{
-			return _dbContext.Exhibitions.Include(e => e.Category);
-		}
-
-		public override Exhibition? GetById(int id)
-		{
-			return _dbContext.Exhibitions.Include(e=> e.Category).Where(e=>e.Id == id).SingleOrDefault();
-		}
+		
 
 
 	}

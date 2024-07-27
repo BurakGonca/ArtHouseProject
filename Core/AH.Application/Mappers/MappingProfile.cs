@@ -1,4 +1,5 @@
 ﻿using AH.Application.Dto.Concrete;
+
 using AH.Domain.Entities;
 using AutoMapper;
 using System;
@@ -13,9 +14,14 @@ namespace AH.Application.Mappers
 	{
         public MappingProfile()
         {
-            CreateMap<Exhibition, ExhibitionDto>().ReverseMap();
-            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Exhibition, ExhibitionDto>().ForMember(dest => dest.Category, opt => opt.Ignore()).ReverseMap();
 
-        }
+			CreateMap<Category, CategoryDto>().ReverseMap();
+			//CreateMap<Exhibition, ExhibitionDto>().ReverseMap();
+
+
+
+
+		}
     }
 }

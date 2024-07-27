@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from '../context/DataContext';
+import '../assets/style/search.scss'
+import { FcSearch } from 'react-icons/fc';
 
 const SearchBar = () => {
+  const {setSearch} = useContext(DataContext);
   return (
-    <div>SearchBar</div>
+    <div className='search-bar'>
+    <input onChange={(e)=>setSearch(e.target.value)} className='search-input' type='text' placeholder='Sergi ara...'/>
+  <FcSearch className="search-icon" size={20} />
+</div>
   )
 }
 
