@@ -62,10 +62,14 @@ namespace AH.WebAPI.Controllers
 		{
 			var exhibition = _exhibitionRepostory.GetById(id);
 
-			var updatedExhibition = _mapper.Map<Exhibition>(dto);
+            dto.StartDate = DateTime.SpecifyKind(dto.StartDate, DateTimeKind.Utc);
+            dto.EndDate = DateTime.SpecifyKind(dto.EndDate, DateTimeKind.Utc);
+
+            var updatedExhibition = _mapper.Map<Exhibition>(dto);
 
 			updatedExhibition.Id = exhibition.Id;
 			updatedExhibition.CreatedDate = exhibition.CreatedDate;
+
 
 			_exhibitionRepostory.Update(updatedExhibition);
 
@@ -74,6 +78,17 @@ namespace AH.WebAPI.Controllers
 
 
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var exhibition = _exhibitionRepostory.GetById(id);
 
-	}
+            _exhibitionRepostory.Delete(exhibition);
+            return NoContent();
+        }
+
+
+
+
+    }
 }

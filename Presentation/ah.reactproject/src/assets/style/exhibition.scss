@@ -1,81 +1,125 @@
 .card {
-    width: 250px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px; 
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     background-color: #FCF8F3;
     transition: transform 0.05s ease-in-out;
-    
+    margin: 3px;
+  
     &:hover {
-        transform: scale(1.04);
+      transform: scale(1.02);
     }
-
-    img {
+  
+    .img {
+      width: 100%;
+      height: 180px;
+      background-position: center;
+      padding: 10px; 
+      border-radius: 5px 5px 0 0;
+      img {
         width: 100%;
-        height: 210px;
-        background-position: center;
-        padding: 14px;
-        border-radius: 10px;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px 5px 0 0;
+      }
     }
-
-    &-body {
-        padding: 14px;
+  
+    .card-body {
+      padding: 12px; 
+      display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+  
+      h4 {
+        font-size: 16px; 
+        letter-spacing: 1px;
+        color: #803D3B;
+        margin-right:10px;
+      }
+  
+      .description {
+        color: #322C2B;
+        font-size: 12px; 
+        margin: 5px 0;
+        height: 40px; 
+        overflow: hidden;
+      }
+  
+      .date-info {
+        width: 100%;
+        margin: 10px 0;
         display: flex;
         flex-direction: column;
-        align-items: center;
-
-        h4 {
-            text-align: center;
-            font-size: 17px;
-            letter-spacing: 1px;
+        align-items: flex-start;
+        gap: 5px;
+  
+        .date-item {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          padding: 4px; 
+          border-radius: 5px;
+          background-color: #F4EDE1;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          font-size: 13px; 
+  
+          .date-label {
+            font-weight: bold;
             color: #803D3B;
-            margin: 5px 0;
-        }
-
-        .description {
+          }
+  
+          .date-value {
             color: #322C2B;
-            font-size: 13px;
-            margin: 5px 0;
-            text-align: center;
-            height: 50px;
-            overflow: hidden;
+          }
         }
-
-        .date-info {
-            width: 100%;
-            margin: 10px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-
-            .date-item {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-                padding: 5px;
-                border-radius: 5px;
-                background-color: #F4EDE1;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                font-size: 14px;
-
-                .date-label {
-                    font-weight: bold;
-                    color: #803D3B;
-                }
-
-                .date-value {
-                    color: #322C2B;
-                }
-            }
+  
+        
+      }
+  
+      .button-container {
+        display: flex;
+        justify-content:center;
+        gap: 10px;
+        width: 100%;
+        margin-top: auto;
+  
+        button {
+       
+          padding: 8px;
+          border: none;
+          border-radius: 5px;
+          font-size: 14px;
+       
+          background: #4CCD99;
+          color: #fff;
+  
+          &:hover {
+            background: #007F73;
         }
+        
+          &.delete {
+            width: 160px;
+          }  
+          &.edit {
+            width: 160px;
+          }  
+
+
+
+        }
+      }
     }
-}
-
-.card-list {
+  }
+  
+  .card-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     padding-bottom: 25px;
-    margin-top: 30px;
-}
+    // margin-top: 30px;
+  }
+  

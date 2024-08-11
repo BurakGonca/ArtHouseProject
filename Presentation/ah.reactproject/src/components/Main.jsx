@@ -12,6 +12,7 @@ import photo1 from '../assets/img/slide1.jpg';
 import photo2 from '../assets/img/slide2.jpg';
 import photo3 from '../assets/img/slide3.jpg';
 import photo4 from '../assets/img/slide4.jpg';
+import photo5 from '../assets/img/slide5.jpg';
 
 const Main = () => {
   return (
@@ -29,10 +30,11 @@ const Main = () => {
       modules={[Autoplay, Pagination, Navigation]}
       className="mySwiper"
     >
-      <SwiperSlide> <img src={photo1} alt="Slide 1" /> </SwiperSlide>
+      <SwiperSlide> <img src={photo4} alt="Slide 4" /> </SwiperSlide>
+      <SwiperSlide> <img src={photo5} alt="Slide 5" /> </SwiperSlide>
       <SwiperSlide> <img src={photo2} alt="Slide 2" /> </SwiperSlide>
       <SwiperSlide> <img src={photo3} alt="Slide 3" /> </SwiperSlide>
-      <SwiperSlide> <img src={photo4} alt="Slide 4" /> </SwiperSlide>
+      <SwiperSlide> <img src={photo1} alt="Slide 1" /> </SwiperSlide>
     </Swiper>
   );
 }

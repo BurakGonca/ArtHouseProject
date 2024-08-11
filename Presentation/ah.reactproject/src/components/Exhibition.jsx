@@ -8,28 +8,24 @@ import { tr } from "date-fns/locale";
 import { Link } from "react-router-dom";
 
 const Exhibition = ({ exhibition }) => {
- 
   const { exhibitionSil, exhibitionDuzenle, search } = useContext(DataContext);
   const { isAuthenticated } = useContext(AuthContext);
 
   const startDate = format(new Date(exhibition.startDate), 'dd MMMM yyyy', { locale: tr });
   const endDate = format(new Date(exhibition.endDate), 'dd MMMM yyyy', { locale: tr });
 
-
   return (
     exhibition.name.toLowerCase().startsWith(search.toLowerCase()) && (
-    <div className="card">
-      <div className="img">
-        <img
-          src={
-            exhibition.imageName ? exhibition.imageName : DefaultExhibitionImage
-          }
-          alt={exhibition.name}
-        />
-      </div>
-      <div className="card-body">
-        <h4>{exhibition.name}</h4>
-        <p>
+      <div className="card">
+        <div className="img">
+          <img
+            src={exhibition.imageName ? exhibition.imageName : DefaultExhibitionImage}
+            alt={exhibition.name}
+          />
+        </div>
+        <div className="card-body">
+          <h4>{exhibition.name}</h4>
+          <p>
             {exhibition.description.substring(
               0,
               exhibition.description.substring(0, 30).lastIndexOf(" ")
@@ -45,35 +41,32 @@ const Exhibition = ({ exhibition }) => {
               <span className="date-value">{endDate}</span>
             </div>
           </div>
-
-
-        <div className="button-container">
-          {isAuthenticated && (
-            <>
-              <button
-                onClick={() => exhibitionSil(exhibition.id)}
-                className="delete"
-              >
-                Sil
-              </button>
-              <Link to="/arthouse/forms">
-                {" "}
+          <div className="button-container">
+            {isAuthenticated && (
+              <>
                 <button
-                  onClick={() => exhibitionDuzenle(exhibition.id)}
-                  className="edit"
+                  onClick={() => exhibitionSil(exhibition.id)}
+                  className="delete"
                 >
-                  Güncelle
+                  Sil
                 </button>
-              </Link>
-            </>
-          )}
+                <Link to="/arthouse/forms">
+                  <button
+                    onClick={() => exhibitionDuzenle(exhibition.id)}
+                    className="edit"
+                  >
+                    Güncelle
+                  </button>
+                </Link>
+              </>
+            )}
+          </div>
         </div>
-
-
       </div>
-    </div>
     )
   );
 };
 
 export default Exhibition;
+
+
