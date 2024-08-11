@@ -3,31 +3,34 @@ import AuthService from "../services/AuthService";
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({children}) =>{
-    const [isAuthenticated,setAuthenticated] = useState(false);
+export const AuthProvider = ({children}) => {
+    const [isAuthenticated, setAuthenticated] = useState(false);
 
-    const login = async(email,password) =>{
+    const login = async (email, password) => {
         try {
-            const user = await AuthService.login(email, password);
-            if (user) {
+            const success = await AuthService.login(email, password);
+            if (success) {
                 setAuthenticated(true); 
+            } else {
+                setAuthenticated(false);
             }
-         } catch (error) {
-             setAuthenticated(false); 
-             
-         }
+            return success;
+        } catch (error) {
+            setAuthenticated(false);
+            return false;
+        }
     }
 
-    const logout = () =>{
+    const logout = () => {
         AuthService.logout();
         setAuthenticated(false);
     }
 
-
-    return <AuthContext.Provider value={{login,logout,isAuthenticated}}>
-        {children}
-    </AuthContext.Provider>
-
+    return (
+        <AuthContext.Provider value={{ login, logout, isAuthenticated }}>
+            {children}
+        </AuthContext.Provider>
+    );
 }
 
 export default AuthContext;

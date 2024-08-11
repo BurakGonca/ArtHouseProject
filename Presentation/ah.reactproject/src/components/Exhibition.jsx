@@ -5,6 +5,7 @@ import { DataContext } from "../context/DataContext";
 import AuthContext from "../context/AuthContext";
 import { format } from "date-fns"; 
 import { tr } from "date-fns/locale"; 
+import { Link } from "react-router-dom";
 
 const Exhibition = ({ exhibition }) => {
  
@@ -46,7 +47,7 @@ const Exhibition = ({ exhibition }) => {
           </div>
 
 
-        {/* <div className="button-container">
+        <div className="button-container">
           {isAuthenticated && (
             <>
               <button
@@ -66,7 +67,7 @@ const Exhibition = ({ exhibition }) => {
               </Link>
             </>
           )}
-        </div> */}
+        </div>
 
 
       </div>

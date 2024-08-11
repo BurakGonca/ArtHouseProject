@@ -23,7 +23,7 @@ const Contact = () => {
       <div className="contact-info">
         <div className="address">
           <h2>Adresimiz</h2>
-          <p>Atatürk Cadd. Atatürk Mah. Ankara</p>
+          <p>Atatürk Cad. Atatürk Mah. Ankara</p>
         </div>
         <div className="phone">
           <h2>İletişim Numarası</h2>

@@ -26,36 +26,6 @@ namespace AH.WebAPI.Controllers
 		}
 
 
-		//[HttpGet]
-		//public IActionResult Get()
-		//{
-
-		//	List<Exhibition> exhibitions = _exhibitionRepostory.GetAll().ToList();
-		//	var exhibitionDtos = _mapper.Map<List<ExhibitionDto>>(exhibitions);
-
-		//	List<ExhibitionViewModel> viewModelList = new List<ExhibitionViewModel>();
-
-		//	foreach (var item in exhibitionDtos)
-		//	{
-		//		var viewModel = new ExhibitionViewModel();
-
-		//		viewModel.Name = item.Name;
-		//		viewModel.Description = item.Description;
-		//		viewModel.ImageName = item.ImageName;
-		//		viewModel.StartDate = item.StartDate;
-		//		viewModel.EndDate = item.EndDate;
-
-		//		viewModelList.Add(viewModel);
-
-		//	}
-
-
-
-
-		//	return Ok(exhibitionDtos);
-
-		//}
-
 
 		[HttpGet]
 		public IActionResult Get()
@@ -64,11 +34,10 @@ namespace AH.WebAPI.Controllers
 
 			var exhibitionDtos = _mapper.Map<List<ExhibitionDto>>(exhibitions);
 
+			
+
 			return Ok(exhibitionDtos);
 		}
-
-
-
 
 
 
@@ -87,49 +56,17 @@ namespace AH.WebAPI.Controllers
 		}
 
 
-		//[HttpPut("{id}")]
-		//public IActionResult Put(int id,ExhibitionDto dto)
-		//{
-		//	var exhibition = _exhibitionRepostory.GetById(id);
-
-
-
-		//	exhibition.Name = dto.Name;
-		//	exhibition.Description = dto.Description;
-		//	exhibition.ImageName = dto.ImageName;
-		//	exhibition.StartDate = DateTime.SpecifyKind(dto.StartDate, DateTimeKind.Utc);
-		//	exhibition.EndDate = DateTime.SpecifyKind(dto.EndDate, DateTimeKind.Utc);
-		//	exhibition.CategoryId = dto.CategoryId;
-
-
-		//	_exhibitionRepostory.Update(exhibition);
-
-		//	return Ok(exhibition);
-
-
-		//}
-
-
-
 
 		[HttpPatch("{id}")]
 		public IActionResult Patch(int id,ExhibitionDto dto)
 		{
 			var exhibition = _exhibitionRepostory.GetById(id);
 
-			if (exhibition == null)
-			{
-				return NotFound();
-			}
-
 			var updatedExhibition = _mapper.Map<Exhibition>(dto);
 
-			
 			updatedExhibition.Id = exhibition.Id;
 			updatedExhibition.CreatedDate = exhibition.CreatedDate;
-			updatedExhibition.UpdatedDate = DateTime.UtcNow;
 
-			
 			_exhibitionRepostory.Update(updatedExhibition);
 
 			return Ok(updatedExhibition);
