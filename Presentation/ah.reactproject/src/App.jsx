@@ -11,10 +11,15 @@ import { AuthProvider } from "./context/AuthContext";
 import LoginPage from "./components/LoginPage";
 import PrivateRoute from "./services/PrivateRoute";
 
+import ExhibitionDetail from "./components/ExhibitionDetail";
+import { ToastContainer } from "react-toastify";
+
+
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+      <ToastContainer />
         <Routes>
           <Route path="/*" element={<Loading />} />
           <Route path="arthouse" element={<Header />}>
@@ -24,6 +29,7 @@ function App() {
               element={<PrivateRoute element={<Forms />} />}
             />
             <Route path="exhibitionlist" element={<ExhibitionList />} />
+            <Route path="exhibitionlist/:exhibitionId" element={<ExhibitionDetail />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<LoginPage />} />

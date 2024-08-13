@@ -3,23 +3,31 @@ import "../assets/style/exhibition.scss";
 import DefaultExhibitionImage from "../assets/img/default-exhibition.jpg";
 import { DataContext } from "../context/DataContext";
 import AuthContext from "../context/AuthContext";
-import { format } from "date-fns"; 
-import { tr } from "date-fns/locale"; 
+import { format } from "date-fns";
+import { tr } from "date-fns/locale";
 import { Link } from "react-router-dom";
 
 const Exhibition = ({ exhibition }) => {
   const { exhibitionSil, exhibitionDuzenle, search } = useContext(DataContext);
   const { isAuthenticated } = useContext(AuthContext);
 
-  const startDate = format(new Date(exhibition.startDate), 'dd MMMM yyyy', { locale: tr });
-  const endDate = format(new Date(exhibition.endDate), 'dd MMMM yyyy', { locale: tr });
+  const startDate = format(new Date(exhibition.startDate), "dd MMMM yyyy", {
+    locale: tr,
+  });
+  const endDate = format(new Date(exhibition.endDate), "dd MMMM yyyy", {
+    locale: tr,
+  });
 
   return (
     exhibition.name.toLowerCase().startsWith(search.toLowerCase()) && (
       <div className="card">
         <div className="img">
           <img
-            src={exhibition.imageName ? exhibition.imageName : DefaultExhibitionImage}
+            src={
+              exhibition.imageName
+                ? exhibition.imageName
+                : DefaultExhibitionImage
+            }
             alt={exhibition.name}
           />
         </div>
@@ -41,6 +49,15 @@ const Exhibition = ({ exhibition }) => {
               <span className="date-value">{endDate}</span>
             </div>
           </div>
+          <div className="button-container2">
+            <Link
+              to={`/arthouse/exhibitionlist/${exhibition.id}`}
+              key={exhibition.id}
+            >
+              <button className="detail">Sergi Detayı</button>
+            </Link>
+          </div>
+
           <div className="button-container">
             {isAuthenticated && (
               <>
@@ -68,5 +85,3 @@ const Exhibition = ({ exhibition }) => {
 };
 
 export default Exhibition;
-
-

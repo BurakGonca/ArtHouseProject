@@ -19,7 +19,7 @@ const LoginPage = () => {
   
     if (success) {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Giriş başarılı",
         showConfirmButton: false,
