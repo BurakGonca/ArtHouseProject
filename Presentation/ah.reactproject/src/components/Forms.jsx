@@ -13,6 +13,14 @@ const Forms = () => {
   const [endDate, setLocalEndDate] = useState("");
   const [categoryId, setLocalCategoryId] = useState("");
 
+  const categories = [
+    { id: 1, name: "Resim" },
+    { id: 2, name: "Heykel" },
+    { id: 3, name: "Fotoğraf" },
+    { id: 4, name: "Dijital Sanat" },
+    { id: 5, name: "Seramik" },
+  ];
+
   useEffect(() => {
     if (secilenExhibition) {
       setLocalName(secilenExhibition.name);
@@ -80,13 +88,20 @@ const Forms = () => {
         onChange={(e) => setLocalEndDate(e.target.value)}
         required
       />
-      <input
-        type="number"
+
+      <select
         value={categoryId}
         onChange={(e) => setLocalCategoryId(e.target.value)}
-        placeholder="Kategori ID"
         required
-      />
+      >
+        <option value="">Kategori Seçin</option>
+        {categories.map((category) => (
+          <option key={category.id} value={category.id}>
+            {category.name}
+          </option>
+        ))}
+      </select>
+
       <input
         type="submit"
         className="form-button"

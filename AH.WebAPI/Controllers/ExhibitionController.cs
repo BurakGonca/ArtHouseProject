@@ -40,6 +40,13 @@ namespace AH.WebAPI.Controllers
 		}
 
 
+		//[HttpGet("{id}")]
+		//public IActionResult GetCategoryByExhibition(int id)
+		//{
+		//	var exhibitions
+		//}
+
+
 
 
 		[HttpPost]

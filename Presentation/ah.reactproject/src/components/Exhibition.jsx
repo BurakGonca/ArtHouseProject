@@ -7,6 +7,26 @@ import { format } from "date-fns";
 import { tr } from "date-fns/locale";
 import { Link } from "react-router-dom";
 
+
+
+const getCategoryName = (categoryId) => {
+  switch (categoryId) {
+    case 1:
+      return "Resim";
+    case 2:
+      return "Heykel";
+    case 3:
+      return "Fotoğraf";
+    case 4:
+      return "Dijital Sanat";
+    case 5:
+      return "Seramik";
+    default:
+      return "Bilinmeyen Kategori"; 
+  }
+};
+
+
 const Exhibition = ({ exhibition }) => {
   const { exhibitionSil, exhibitionDuzenle, search } = useContext(DataContext);
   const { isAuthenticated } = useContext(AuthContext);
@@ -39,6 +59,15 @@ const Exhibition = ({ exhibition }) => {
               exhibition.description.substring(0, 30).lastIndexOf(" ")
             ) + "..."}
           </p>
+
+            {/* Kategori Adı Gösterimi */}
+          <div className="category-info">
+            <span className="category-label">Kategori:</span>
+            <span className="category-value">
+              {getCategoryName(exhibition.categoryId)}
+            </span>
+          </div>
+
           <div className="date-info">
             <div className="date-item">
               <span className="date-label">Başlangıç:</span>
